@@ -609,6 +609,61 @@
     .demo-cta {margin-top:1rem;text-align:center;max-width:100%;font-size:1rem}
     @media(max-width:768px){.demo-live {padding:1rem}.demo-chips button,.demo-results button{font-size:.89rem}.demo-cta {font-size:.94rem}}
 
+
+    /* DÍA 9 - PULIDO VISUAL RESPONSIVE (sin modificar oferta ni demo) */
+    html { scroll-padding-top: 94px; }
+    body { overflow-wrap: break-word; }
+    .container { max-width: 1120px; }
+    .site-header { padding: .8rem 0; }
+    .header-content { gap: 1.5rem; }
+    .brand-logo { max-width: min(270px, 65vw); height: auto; max-height: 68px; object-fit: contain; }
+    .header-tagline { max-width: 290px; line-height: 1.45; }
+    .hero-text { max-width: 870px; }
+    #quien-soy { padding-top: clamp(3rem, 7vw, 6rem); }
+    .hero-text h1 { font-size: clamp(2rem, 4.5vw, 3.55rem); letter-spacing: -.035em; text-wrap: balance; }
+    .section-title { font-size: clamp(1.75rem, 3vw, 2.4rem); text-wrap: balance; }
+    .section-subtitle, .hero-description, .cta-text { max-width: 64ch; }
+    .badge { max-width: 100%; white-space: normal; line-height: 1.35; }
+    .card, .faq-item, .state-box, .budget-process { min-width: 0; }
+    .btn-primary { max-width: 100%; line-height: 1.35; text-align: center; min-height: 48px; }
+    a:focus-visible, button:focus-visible { outline: 3px solid #67e8f9; outline-offset: 4px; }
+    .faq-question { line-height: 1.45; }
+    .demo-live { min-width: 0; }
+    .demo-chips button, .demo-results button { min-height: 44px; }
+    .demo-history li { overflow-wrap: anywhere; }
+    @media (max-width: 768px) {
+      html { scroll-padding-top: 75px; }
+      .container { padding-inline: 1.1rem; }
+      .site-header { padding: .65rem 0; }
+      .brand-logo { width: min(235px, 70vw); max-height: 58px; }
+      .hero-text h1 { font-size: clamp(1.95rem, 7vw, 2.55rem); line-height: 1.16; }
+      .hero-description { font-size: 1.05rem; }
+      .hero-highlight { padding: 1rem; }
+      .audience-grid, .demo-comparison, .budget-grid { grid-template-columns: minmax(0,1fr); }
+      .steps-grid { grid-template-columns: minmax(0,1fr); }
+      .card { padding: 1.4rem; }
+      .state-box, .budget-process { padding: 1.35rem; }
+      .faq-question { padding: 1.1rem; font-size: 1.05rem; }
+      .faq-answer { padding: 1rem 1.1rem 1.25rem; }
+      .demo-detail { padding: 1.1rem; }
+      .demo-live { padding: 1.1rem; }
+      .demo-cta { white-space: normal; overflow-wrap: anywhere; }
+      .cta-section { padding: 4rem 0; }
+      .cta-section .section-title { font-size: clamp(1.75rem,6vw,2.3rem) !important; }
+      .cta-section .btn-primary { font-size: 1.05rem !important; padding: 1rem 1.15rem !important; }
+    }
+    @media (max-width: 380px) {
+      .container { padding-inline: .9rem; }
+      .brand-logo { width: min(205px, 73vw); }
+      .hero-text h1 { font-size: 1.86rem; }
+      .demo-chips button, .demo-results button { flex: 1 1 100%; }
+      .process-item { align-items: flex-start; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
+
   </style>
 </head>
 <body>
