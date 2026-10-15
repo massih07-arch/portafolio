@@ -150,21 +150,20 @@
     }
 
     .brand-name {
-      font-family: var(--font-heading);
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: #ffffff;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
     }
 
-    .brand-dot {
-      width: 10px;
-      height: 10px;
-      background: var(--accent-cyan);
-      border-radius: 50%;
-      box-shadow: 0 0 10px var(--accent-cyan);
+    .brand-link {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .brand-logo {
+      width: auto;
+      height: 54px;
+      display: block;
     }
 
     .header-tagline {
@@ -558,6 +557,10 @@
         display: none;
       }
 
+      .brand-logo {
+        height: 42px;
+      }
+
       .hero-text h1 {
         font-size: 2rem;
       }
@@ -614,8 +617,9 @@
   <header class="site-header">
     <div class="container header-content">
       <div class="brand-name">
-        <span class="brand-dot"></span>
-        Hernán
+        <a href="#quien-soy" class="brand-link" aria-label="HM Sistemas Simples">
+          <img src="logo-hm.png" alt="HM Sistemas Simples" class="brand-logo">
+        </a>
       </div>
       <div class="header-tagline">
         Sistemas simples para talleres y negocios de servicios
@@ -731,46 +735,45 @@
     <!-- 4. CÓMO TRABAJO -->
     <section id="como-trabajo">
       <div class="container">
-        <span class="badge">Proceso Transparente</span>
-        <h2 class="section-title">Cómo trabajamos paso a paso</h2>
-        <p class="section-subtitle">Un proceso ágil pensado para no interrumpir la atención diaria de tu negocio.</p>
+        <span class="badge">Así trabajo con vos</span>
+        <h2 class="section-title">De la primera charla a tu sistema funcionando</h2>
+        <p class="section-subtitle">Primero entiendo lo que necesitás y te muestro una demo adaptada a tu negocio. Recién después conversamos, en una reunión individual, sobre la inversión. Sin sorpresas.</p>
 
         <div class="steps-grid">
           <div class="card step-card">
             <span class="step-number">01</span>
-            <h3 class="step-title">Conozco tu negocio</h3>
-            <p class="step-desc">Entiendo exactamente cómo trabajás actualmente y qué datos manejás hoy.</p>
+            <h3 class="step-title">Charla de 20 minutos</h3>
+            <p class="step-desc">Nos reunimos para entender cómo trabajás, qué te lleva tiempo y cuál es el problema que querés resolver. No hablamos de precios todavía.</p>
           </div>
-
           <div class="card step-card">
             <span class="step-number">02</span>
-            <h3 class="step-title">Elegimos el problema</h3>
-            <p class="step-desc">Definimos un problema concreto para resolver y simplificar de inmediato.</p>
+            <h3 class="step-title">Te muestro una demo</h3>
+            <p class="step-desc">Preparo un ejemplo adaptado a tu negocio para que veas cómo sería la solución antes de tomar una decisión.</p>
           </div>
-
           <div class="card step-card">
             <span class="step-number">03</span>
-            <h3 class="step-title">Primera solución</h3>
-            <p class="step-desc">Preparo una primera versión en aproximadamente 14 días según el alcance.</p>
+            <h3 class="step-title">Acordamos el alcance</h3>
+            <p class="step-desc">Dejo por escrito qué incluye y qué no incluye el trabajo. Cuando ya viste la demo, conversamos en una reunión 1 a 1 sobre la inversión.</p>
           </div>
-
           <div class="card step-card">
             <span class="step-number">04</span>
-            <h3 class="step-title">Prueba en vivo</h3>
-            <p class="step-desc">Tu negocio la prueba en el trabajo diario real y nos da su feedback.</p>
+            <h3 class="step-title">Construyo la solución</h3>
+            <p class="step-desc">Con el alcance aprobado, la desarrollo en un plazo estimado de 7, 14 o 30 días, según la complejidad acordada.</p>
           </div>
-
           <div class="card step-card">
             <span class="step-number">05</span>
-            <h3 class="step-title">Ajustes y entrega</h3>
-            <p class="step-desc">Hacemos las correcciones finales y te entrego el sistema 100% funcionando.</p>
+            <h3 class="step-title">Entrega y un ajuste</h3>
+            <p class="step-desc">Probamos el sistema con ejemplos reales de tu trabajo. Te explico cómo usarlo e incluyo una ronda de ajustes acordados.</p>
+          </div>
+          <div class="card step-card">
+            <span class="step-number">06</span>
+            <h3 class="step-title">Vemos cómo seguir</h3>
+            <p class="step-desc">Después de la entrega, charlamos si necesitás soporte, nuevas funciones o una segunda etapa. Nada se suma sin acordarlo.</p>
           </div>
         </div>
-
-        <div style="text-align: center;">
-          <div class="time-badge">
-            ⏱️ Plazo aproximado: 14 días para la primera versión lista para usar.
-          </div>
+        <div class="card" style="margin-top:1.75rem;border-left:4px solid var(--accent-cyan)">
+          <h3 class="step-title">¿Qué necesito de tu parte?</h3>
+          <p class="step-desc">Los datos y accesos necesarios para el trabajo, compartidos de forma segura, y una reunión breve por semana para revisar el avance y resolver dudas.</p>
         </div>
       </div>
     </section>
