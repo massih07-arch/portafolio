@@ -580,6 +580,32 @@
         font-size: 1.05rem;
       }
     }
+
+    /* DÍA 5 - DEMOSTRACIÓN INTERACTIVA */
+    .demo-live { background:linear-gradient(180deg,#151c28,#0e1724);border:1px solid var(--border-accent);border-radius:20px;padding:2rem;box-shadow:var(--shadow-glow); }
+    .demo-intro,.demo-outro { color:var(--text-muted);padding:1rem 1.2rem;border-radius:10px;margin:1rem 0 1.5rem;line-height:1.7; }
+    .demo-intro {background:rgba(239,68,68,.07);border-left:3px solid #ef4444} .demo-outro {background:rgba(16,185,129,.09);border-left:3px solid #10b981;margin-top:1.5rem}
+    .demo-intro strong {color:#fca5a5} .demo-outro strong {color:#6ee7b7}
+    .demo-label {display:block;font-weight:700;margin-bottom:.65rem;color:#fff}
+    .demo-search {display:block;width:100%;border:1px solid #51627a;background:#0b0f17;color:#fff;padding:1rem;border-radius:10px;font:inherit;outline-offset:3px}
+    .demo-search:focus-visible,.demo-chips button:focus-visible,.demo-results button:focus-visible {outline:3px solid #06b6d4;outline-offset:2px}
+    .demo-hint,.demo-results-label {color:#aab6c6;font-size:.9rem;margin:.8rem 0}
+    .demo-chips,.demo-results {display:flex;flex-wrap:wrap;gap:.6rem}
+    .demo-chips button,.demo-results button {font:inherit;cursor:pointer;border:1px solid #3a526a;color:#d7f7fc;background:#1c2e40;border-radius:999px;padding:.55rem .85rem}
+    .demo-chips button:hover,.demo-results button:hover,.demo-results button[aria-pressed="true"] {border-color:#06b6d4;background:#123d49}
+    .demo-results {margin-bottom:1rem}
+    .demo-detail {background:#0b1220;border:1px solid #334155;border-radius:14px;padding:1.35rem;min-height:110px;color:#d1d5db}
+    .demo-detail h4 {font-size:1.25rem;color:white;margin-bottom:.3rem}
+    .demo-meta {color:#9ca3af;font-size:.93rem;margin-bottom:1.2rem}
+    .demo-detail h5 {color:#67e8f9;font-size:1rem;margin:.9rem 0 .6rem}
+    .demo-history {list-style:none;display:grid;gap:.7rem}
+    .demo-history li {padding:.9rem 1rem;background:#162235;border-left:3px solid #06b6d4;border-radius:7px}
+    .demo-history strong {color:#fff}
+    .demo-history span {display:block;color:#b9c7d6;font-size:.92rem}
+    .demo-status {display:inline-block;background:#164e3d;color:#a7f3d0;border-radius:20px;padding:.15rem .6rem;font-size:.82rem;margin-top:.3rem}
+    .demo-cta {margin-top:1rem;text-align:center;max-width:100%;font-size:1rem}
+    @media(max-width:768px){.demo-live {padding:1rem}.demo-chips button,.demo-results button{font-size:.89rem}.demo-cta {font-size:.94rem}}
+
   </style>
 </head>
 <body>
@@ -603,13 +629,13 @@
       <div class="container">
         <div class="hero-grid">
           <div class="hero-text">
-            <span class="badge">Sistemas Simples desde el Celular</span>
-            <h1>Organizá tus clientes, trabajos e historial <span>en aproximadamente 14 días</span></h1>
+            <span class="badge">Sistemas para talleres y negocios de servicios</span>
+            <h1>Creo sistemas simples para talleres y negocios de servicios: <span>clientes, trabajos e historial en un solo lugar.</span></h1>
             <p class="hero-description">
-              Soy Hernán y me dedico a crear sistemas simples desde el celular para que talleres y negocios de servicios tengan todos sus clientes, pedidos y trabajos ordenados en un solo lugar.
+              Soy Hernán. Te entrego una primera versión para registrar clientes, seguir trabajos y consultar reparaciones anteriores desde el celular, en aproximadamente 14 días.
             </p>
             <div class="hero-highlight">
-              Te ayudo a dejar atrás el desorden de los cuadernos y los chats de WhatsApp sin instalar programas raros ni complicarte la vida.
+              Menos tiempo buscando datos en cuadernos, Excel o WhatsApp. Más claridad sobre cada trabajo pendiente.
             </div>
             <a href="#cta" class="btn-primary">Agendá una reunión de 20 minutos</a>
           </div>
@@ -622,17 +648,16 @@
       <div class="container">
         <span class="badge">Perfil del Cliente</span>
         <h2 class="section-title">Para quién es (y para quién no) este servicio</h2>
-        <p class="section-subtitle">Buscamos encajar perfecto con negocios que valoran la simplicidad y necesitan resultados concretos.</p>
+        <p class="section-subtitle">Una solución práctica para negocios que necesitan ordenar su trabajo diario.</p>
         
         <div class="audience-grid">
           <!-- PARA QUIÉN SÍ -->
           <div class="card audience-card yes">
             <h3><span class="icon">✓</span> Para quién SÍ es</h3>
             <ul class="audience-list">
-              <li><span class="icon">✓</span> Talleres (mecánicos, de reparación, calzado, confección).</li>
-              <li><span class="icon">✓</span> Prestadores de servicios y pequeños negocios.</li>
-              <li><span class="icon">✓</span> Negocios que hoy manejan sus clientes y trabajos pendientes en cuadernos, planillas de Excel o chats de WhatsApp.</li>
-              <li><span class="icon">✓</span> Dueños que necesitan recuperar el control y el orden sin perder tiempo.</li>
+              <li><span class="icon">✓</span> Talleres de reparación, incluidos bobinados de motores, mecánica y servicios técnicos.</li>
+              <li><span class="icon">✓</span> Pequeños negocios que registran clientes y trabajos en papel, Excel o WhatsApp.</li>
+              <li><span class="icon">✓</span> Prestadores de servicios que quieren consultar el estado y el historial de cada trabajo.</li>
             </ul>
           </div>
 
@@ -640,9 +665,9 @@
           <div class="card audience-card no">
             <h3><span class="icon">✕</span> Para quién NO es</h3>
             <ul class="audience-list">
-              <li><span class="icon">✕</span> Grandes empresas que buscan sistemas corporativos complejos (ERP pesados).</li>
-              <li><span class="icon">✕</span> Proyectos corporativos con burocracia extensa.</li>
-              <li><span class="icon">✕</span> Negocios que pretenden automatizar absolutamente todo desde el primer día.</li>
+              <li><span class="icon">✕</span> Grandes empresas que necesitan un ERP corporativo completo.</li>
+              <li><span class="icon">✕</span> Negocios que buscan reemplazar toda su operación de una sola vez.</li>
+              <li><span class="icon">✕</span> Proyectos que requieren automatizaciones complejas desde el primer día.</li>
             </ul>
           </div>
         </div>
@@ -678,13 +703,27 @@
           </div>
         </div>
 
-        <!-- ESPACIO IDENTIFICADO PARA LA DEMO INTERACTIVA FUTURA -->
-        <div class="demo-placeholder-container">
-          <span class="demo-placeholder-badge">Espacio para Demo Interactiva</span>
-          <h3 class="demo-placeholder-title">Prototipo Interactivo (Próximamente)</h3>
-          <p class="demo-placeholder-text">
-            Aquí se incorporará el módulo interactivo para simular el registro de un trabajo y la consulta del historial de clientes en tiempo real desde el celular.
-          </p>
+        <!-- DEMO DÍA 5: Ficha de cliente. Todo funciona localmente, sin servidor. -->
+        <div class="demo-live" id="demo-clientes">
+          <span class="demo-placeholder-badge">Demo interactiva · Datos ficticios</span>
+          <h3 class="demo-placeholder-title">Encontrá una reparación en segundos</h3>
+          <p class="demo-intro"><strong>Antes:</strong> para saber qué se hizo en un motor, buscabas en cuadernos, planillas o mensajes viejos.</p>
+          <label for="busca-cliente" class="demo-label">Buscá un cliente del taller</label>
+          <input id="busca-cliente" class="demo-search" type="search" autocomplete="off" placeholder="Probá: Pérez, López o García" aria-describedby="demo-ayuda">
+          <p id="demo-ayuda" class="demo-hint">También podés elegir una ficha de ejemplo:</p>
+          <div class="demo-chips" id="demo-chips">
+            <button type="button" data-client="0">Juan Pérez</button>
+            <button type="button" data-client="1">María López</button>
+            <button type="button" data-client="2">Carlos García</button>
+          </div>
+          <p class="demo-results-label" id="demo-results-label" aria-live="polite"></p>
+          <div class="demo-results" id="demo-results"></div>
+          <div class="demo-detail" id="demo-detail" aria-live="polite">
+            <p>Elegí un cliente para ver su ficha y el historial de motores reparados.</p>
+          </div>
+          <p class="demo-outro"><strong>Después:</strong> encontrás el cliente, sus motores y las reparaciones anteriores desde el celular, en un solo lugar.</p>
+          <p class="demo-hint">Esta es una simulación con datos inventados. No guarda información ni envía mensajes.</p>
+          <a class="btn-primary demo-cta" href="#cta">¿Lo ves claro? Agendá 20 minutos y te armo la versión para tu negocio</a>
         </div>
       </div>
     </section>
@@ -867,5 +906,79 @@
     </div>
   </footer>
 
+
+  <script>
+    // Día 5: una demo de fichas de clientes de un taller de bobinado.
+    // Los datos son inventados y nunca salen de este navegador.
+    (() => {
+      const clientes = [
+        {nombre:'Juan Pérez', rubro:'Establecimiento agrícola', motores:[
+          {fecha:'12/09/2026', equipo:'Motor trifásico 5 HP · bomba de agua', tarea:'Rebobinado de estator y cambio de rodamientos', estado:'Entregado'},
+          {fecha:'03/04/2026', equipo:'Motor monofásico 1 HP · ventilación', tarea:'Revisión de capacitor y prueba de funcionamiento', estado:'Entregado'}]},
+        {nombre:'María López', rubro:'Panadería', motores:[
+          {fecha:'10/10/2026', equipo:'Motor trifásico 3 HP · amasadora', tarea:'Diagnóstico de aislamiento y presupuesto de bobinado', estado:'En revisión'},
+          {fecha:'21/06/2026', equipo:'Motor monofásico 0,75 HP · extractor', tarea:'Cambio de rulemanes y limpieza', estado:'Entregado'}]},
+        {nombre:'Carlos García', rubro:'Taller metalúrgico', motores:[
+          {fecha:'14/10/2026', equipo:'Motor trifásico 7,5 HP · compresor', tarea:'Rebobinado y prueba de aislamiento', estado:'En proceso'},
+          {fecha:'08/02/2026', equipo:'Motor trifásico 2 HP · torno', tarea:'Cambio de rodamientos y prueba final', estado:'Entregado'}]}
+      ];
+      const input = document.getElementById('busca-cliente');
+      const resultados = document.getElementById('demo-results');
+      const detalle = document.getElementById('demo-detail');
+      const etiqueta = document.getElementById('demo-results-label');
+      if (!input || !resultados || !detalle) return;
+      let actual = null;
+      const crear = (tag, texto, clase) => {
+        const nodo = document.createElement(tag);
+        if (texto !== undefined) nodo.textContent = texto;
+        if (clase) nodo.className = clase;
+        return nodo;
+      };
+      const normalizar = valor => valor.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+      function mostrarFicha(indice) {
+        actual = indice;
+        const c = clientes[indice];
+        detalle.replaceChildren();
+        detalle.append(crear('h4', c.nombre));
+        detalle.append(crear('p', 'Actividad: ' + c.rubro, 'demo-meta'));
+        detalle.append(crear('h5', 'Historial de reparaciones (' + c.motores.length + ')'));
+        const lista = crear('ul',undefined,'demo-history');
+        c.motores.forEach(m => {
+          const item = crear('li');
+          item.append(crear('strong',m.equipo));
+          item.append(crear('span','Fecha: ' + m.fecha));
+          item.append(crear('span','Trabajo: ' + m.tarea));
+          item.append(crear('span','Estado: ' + m.estado,'demo-status'));
+          lista.append(item);
+        });
+        detalle.append(lista);
+        renderResultados();
+      }
+      function renderResultados() {
+        const texto = normalizar(input.value.trim());
+        const coincidencias = clientes.map((c,i)=>({c,i})).filter(x=>normalizar(x.c.nombre).includes(texto));
+        resultados.replaceChildren();
+        etiqueta.textContent = texto ? (coincidencias.length + (coincidencias.length===1?' cliente encontrado':' clientes encontrados')) : 'Clientes de ejemplo';
+        coincidencias.forEach(({c,i}) => {
+          const boton = crear('button',c.nombre);
+          boton.type='button';
+          boton.setAttribute('aria-pressed',String(i===actual));
+          boton.addEventListener('click',()=>mostrarFicha(i));
+          resultados.append(boton);
+        });
+        if(!coincidencias.length){resultados.append(crear('p','No hay coincidencias. Probá con Pérez, López o García.'))}
+      }
+      document.querySelectorAll('#demo-chips button').forEach(boton=>boton.addEventListener('click',()=>{
+        input.value=clientes[Number(boton.dataset.client)].nombre;
+        mostrarFicha(Number(boton.dataset.client));
+      }));
+      input.addEventListener('input',()=>{
+        actual=null;
+        detalle.replaceChildren(crear('p','Seleccioná un cliente de los resultados para consultar su historial.'));
+        renderResultados();
+      });
+      renderResultados();
+    })();
+  </script>
 </body>
 </html>
