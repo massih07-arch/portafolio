@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hernán | Sistemas Simples para Pequeños Negocios y Servicios</title>
+  <!-- Typography from Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* CSS RESET & VARIABLES */
+    :root {
+      --bg-main: #0b0f17;
+      --bg-card: #151c28;
+      --bg-card-hover: #1c2637;
+      --accent-cyan: #06b6d4;
+      --accent-emerald: #10b981;
+      --accent-gradient: linear-gradient(135deg, #06b6d4 0%, #10b981 100%);
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --text-dim: #6b7280;
+      --border-color: #263346;
+      --border-accent: rgba(6, 182, 212, 0.3);
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.2);
+      --shadow-glow: 0 0 25px rgba(6, 182, 212, 0.15);
+      --font-heading: 'Outfit', -apple-system, sans-serif;
+      --font-body: 'Plus Jakarta Sans', -apple-system, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* CONTAINER & UTILS */
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    section {
+      padding: 5rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1rem;
+      background: rgba(6, 182, 212, 0.1);
+      border: 1px solid var(--border-accent);
+      border-radius: 9999px;
+      color: var(--accent-cyan);
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      margin-bottom: 1.25rem;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 2.25rem;
+      font-weight: 700;
+      line-height: 1.2;
+      color: #ffffff;
+      margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+      font-size: 1.125rem;
+      color: var(--text-muted);
+      max-width: 680px;
+      margin-bottom: 2.5rem;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.1rem 2.2rem;
+      background: var(--accent-gradient);
+      color: #0b0f17;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.125rem;
+      text-decoration: none;
+      border-radius: var(--radius-md);
+      box-shadow: 0 4px 20px rgba(6, 182, 212, 0.3);
+      transition: all 0.25s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 28px rgba(16, 185, 129, 0.4);
+      filter: brightness(1.05);
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 2rem;
+      transition: border-color 0.25s ease, transform 0.25s ease;
+    }
+
+    .card:hover {
+      border-color: var(--border-accent);
+    }
+
+    /* HEADER */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(11, 15, 23, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 1.2rem 0;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-name {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .brand-dot {
+      width: 10px;
+      height: 10px;
+      background: var(--accent-cyan);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--accent-cyan);
+    }
+
+    .header-tagline {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      text-align: right;
+    }
+
+    /* 1. QUIÉN SOY Y QUÉ OFREZCO */
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      font-family: var(--font-heading);
+      font-size: 2.75rem;
+      font-weight: 700;
+      line-height: 1.15;
+      color: #ffffff;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-text h1 span {
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-description {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-highlight {
+      background: var(--bg-card);
+      border-left: 4px solid var(--accent-cyan);
+      padding: 1.25rem 1.5rem;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-size: 1.05rem;
+      color: var(--text-main);
+      margin-bottom: 2rem;
+    }
+
+    /* 2. PARA QUIÉN SÍ / PARA QUIÉN NO */
+    .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.75rem;
+    }
+
+    .audience-card.yes {
+      border-top: 4px solid var(--accent-emerald);
+    }
+
+    .audience-card.no {
+      border-top: 4px solid #ef4444;
+    }
+
+    .audience-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .audience-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .audience-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    .audience-list li span.icon {
+      font-weight: bold;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .audience-card.yes .icon { color: var(--accent-emerald); }
+    .audience-card.no .icon { color: #ef4444; }
+
+    /* 3. DEMO - ANTES / DESPUÉS */
+    .demo-comparison {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .state-box {
+      padding: 1.75rem;
+      border-radius: var(--radius-md);
+    }
+
+    .state-box.before {
+      background: rgba(239, 68, 68, 0.05);
+      border: 1px solid rgba(239, 68, 68, 0.2);
+    }
+
+    .state-box.after {
+      background: rgba(16, 185, 129, 0.05);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+    }
+
+    .state-box h4 {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .state-box.before h4 { color: #f87171; }
+    .state-box.after h4 { color: #34d399; }
+
+    .state-box ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .state-box ul li {
+      position: relative;
+      padding-left: 1.5rem;
+    }
+
+    .state-box.before ul li::before {
+      content: "✕";
+      position: absolute;
+      left: 0;
+      color: #ef4444;
+    }
+
+    .state-box.after ul li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #10b981;
+    }
+
+    /* DEMO PLACEHOLDER BOX */
+    .demo-placeholder-container {
+      background: linear-gradient(180deg, var(--bg-card) 0%, rgba(21, 28, 40, 0.6) 100%);
+      border: 2px dashed var(--border-accent);
+      border-radius: var(--radius-lg);
+      padding: 3.5rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-glow);
+    }
+
+    .demo-placeholder-badge {
+      display: inline-block;
+      padding: 0.35rem 0.9rem;
+      background: rgba(6, 182, 212, 0.15);
+      color: var(--accent-cyan);
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+
+    .demo-placeholder-title {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      color: #ffffff;
+      margin-bottom: 0.75rem;
+    }
+
+    .demo-placeholder-text {
+      color: var(--text-muted);
+      max-width: 580px;
+      margin: 0 auto;
+      font-size: 1rem;
+    }
+
+    /* 4. CÓMO TRABAJO */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .step-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .step-number {
+      font-family: var(--font-heading);
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: var(--accent-cyan);
+      opacity: 0.8;
+      margin-bottom: 0.5rem;
+    }
+
+    .step-title {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+    }
+
+    .step-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .time-badge {
+      margin-top: 2rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.8rem 1.4rem;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      border-radius: var(--radius-sm);
+      color: var(--accent-emerald);
+      font-weight: 600;
+    }
+
+    /* 5. CÓMO ARMO EL PRESUPUESTO */
+    .budget-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .budget-info h3 {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      color: #ffffff;
+      margin-bottom: 1rem;
+    }
+
+    .budget-factors {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .budget-factors li {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: var(--text-muted);
+    }
+
+    .budget-factors li::before {
+      content: "•";
+      color: var(--accent-cyan);
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+
+    .budget-process {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .process-flow {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+
+    .process-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.75rem 1rem;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .process-step-tag {
+      font-weight: 700;
+      color: var(--accent-cyan);
+      font-size: 0.85rem;
+      background: rgba(6, 182, 212, 0.1);
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    /* 6. PREGUNTAS FRECUENTES */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      max-width: 850px;
+    }
+
+    .faq-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: border-color 0.25s ease;
+    }
+
+    .faq-item:hover {
+      border-color: var(--border-accent);
+    }
+
+    .faq-question {
+      padding: 1.5rem;
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #ffffff;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+    }
+
+    .faq-icon {
+      font-size: 1.25rem;
+      color: var(--accent-cyan);
+      transition: transform 0.3s ease;
+    }
+
+    .faq-answer {
+      padding: 0 1.5rem 1.5rem 1.5rem;
+      color: var(--text-muted);
+      font-size: 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 1rem;
+    }
+
+    /* 7. CTA FINAL */
+    .cta-section {
+      text-align: center;
+      background: radial-gradient(circle at center, rgba(6, 182, 212, 0.1) 0%, rgba(11, 15, 23, 0) 70%);
+      padding: 6rem 0;
+    }
+
+    .cta-container {
+      max-width: 750px;
+      margin: 0 auto;
+    }
+
+    .cta-text {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 2.5rem 0;
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 0.9rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    /* RESPONSIVE DESIGN (MOBILE FIRST OVERRIDES) */
+    @media (max-width: 768px) {
+      .header-tagline {
+        display: none;
+      }
+
+      .hero-text h1 {
+        font-size: 2rem;
+      }
+
+      .section-title {
+        font-size: 1.75rem;
+      }
+
+      .budget-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 3.5rem 0;
+      }
+
+      .btn-primary {
+        width: 100%;
+        padding: 1.1rem 1.5rem;
+        font-size: 1.05rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-content">
+      <div class="brand-name">
+        <span class="brand-dot"></span>
+        Hernán
+      </div>
+      <div class="header-tagline">
+        Sistemas simples para talleres y negocios de servicios
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- 1. QUIÉN SOY Y QUÉ OFREZCO -->
+    <section id="quien-soy">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-text">
+            <span class="badge">Sistemas Simples desde el Celular</span>
+            <h1>Organizá tus clientes, trabajos e historial <span>en aproximadamente 14 días</span></h1>
+            <p class="hero-description">
+              Soy Hernán y me dedico a crear sistemas simples desde el celular para que talleres y negocios de servicios tengan todos sus clientes, pedidos y trabajos ordenados en un solo lugar.
+            </p>
+            <div class="hero-highlight">
+              Te ayudo a dejar atrás el desorden de los cuadernos y los chats de WhatsApp sin instalar programas raros ni complicarte la vida.
+            </div>
+            <a href="#cta" class="btn-primary">Agendá una reunión de 20 minutos</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. PARA QUIÉN SÍ / PARA QUIÉN NO -->
+    <section id="para-quien">
+      <div class="container">
+        <span class="badge">Perfil del Cliente</span>
+        <h2 class="section-title">Para quién es (y para quién no) este servicio</h2>
+        <p class="section-subtitle">Buscamos encajar perfecto con negocios que valoran la simplicidad y necesitan resultados concretos.</p>
+        
+        <div class="audience-grid">
+          <!-- PARA QUIÉN SÍ -->
+          <div class="card audience-card yes">
+            <h3><span class="icon">✓</span> Para quién SÍ es</h3>
+            <ul class="audience-list">
+              <li><span class="icon">✓</span> Talleres (mecánicos, de reparación, calzado, confección).</li>
+              <li><span class="icon">✓</span> Prestadores de servicios y pequeños negocios.</li>
+              <li><span class="icon">✓</span> Negocios que hoy manejan sus clientes y trabajos pendientes en cuadernos, planillas de Excel o chats de WhatsApp.</li>
+              <li><span class="icon">✓</span> Dueños que necesitan recuperar el control y el orden sin perder tiempo.</li>
+            </ul>
+          </div>
+
+          <!-- PARA QUIÉN NO -->
+          <div class="card audience-card no">
+            <h3><span class="icon">✕</span> Para quién NO es</h3>
+            <ul class="audience-list">
+              <li><span class="icon">✕</span> Grandes empresas que buscan sistemas corporativos complejos (ERP pesados).</li>
+              <li><span class="icon">✕</span> Proyectos corporativos con burocracia extensa.</li>
+              <li><span class="icon">✕</span> Negocios que pretenden automatizar absolutamente todo desde el primer día.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. DEMO — ANTES / DESPUÉS -->
+    <section id="demo">
+      <div class="container">
+        <span class="badge">Ejemplo Práctico</span>
+        <h2 class="section-title">El cambio en un taller de reparación de motores</h2>
+        <p class="section-subtitle">Mirá la diferencia operativa entre trabajar con cuaderno o tener un sistema simple centralizado.</p>
+
+        <div class="demo-comparison">
+          <!-- ANTES -->
+          <div class="state-box before">
+            <h4>ANTES (Cuaderno y desorden)</h4>
+            <ul>
+              <li>Anotás las reparaciones en un cuaderno o papelitos sueltos.</li>
+              <li>Revisás todo a fin de mes perdiendo horas para saber qué le hiciste a cada cliente.</li>
+              <li>Armás presupuestos a mano entre mensajes desordenados de WhatsApp.</li>
+            </ul>
+          </div>
+
+          <!-- DESPUÉS -->
+          <div class="state-box after">
+            <h4>DESPUÉS (Sistema simple en el celular)</h4>
+            <ul>
+              <li>Registrás cada trabajo en segundos directamente desde tu celular.</li>
+              <li>Obtenés automáticamente el resumen e historial completo del cliente.</li>
+              <li>Consultás y compartís la información clara al instante.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ESPACIO IDENTIFICADO PARA LA DEMO INTERACTIVA FUTURA -->
+        <div class="demo-placeholder-container">
+          <span class="demo-placeholder-badge">Espacio para Demo Interactiva</span>
+          <h3 class="demo-placeholder-title">Prototipo Interactivo (Próximamente)</h3>
+          <p class="demo-placeholder-text">
+            Aquí se incorporará el módulo interactivo para simular el registro de un trabajo y la consulta del historial de clientes en tiempo real desde el celular.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. CÓMO TRABAJO -->
+    <section id="como-trabajo">
+      <div class="container">
+        <span class="badge">Proceso Transparente</span>
+        <h2 class="section-title">Cómo trabajamos paso a paso</h2>
+        <p class="section-subtitle">Un proceso ágil pensado para no interrumpir la atención diaria de tu negocio.</p>
+
+        <div class="steps-grid">
+          <div class="card step-card">
+            <span class="step-number">01</span>
+            <h3 class="step-title">Conozco tu negocio</h3>
+            <p class="step-desc">Entiendo exactamente cómo trabajás actualmente y qué datos manejás hoy.</p>
+          </div>
+
+          <div class="card step-card">
+            <span class="step-number">02</span>
+            <h3 class="step-title">Elegimos el problema</h3>
+            <p class="step-desc">Definimos un problema concreto para resolver y simplificar de inmediato.</p>
+          </div>
+
+          <div class="card step-card">
+            <span class="step-number">03</span>
+            <h3 class="step-title">Primera solución</h3>
+            <p class="step-desc">Preparo una primera versión en aproximadamente 14 días según el alcance.</p>
+          </div>
+
+          <div class="card step-card">
+            <span class="step-number">04</span>
+            <h3 class="step-title">Prueba en vivo</h3>
+            <p class="step-desc">Tu negocio la prueba en el trabajo diario real y nos da su feedback.</p>
+          </div>
+
+          <div class="card step-card">
+            <span class="step-number">05</span>
+            <h3 class="step-title">Ajustes y entrega</h3>
+            <p class="step-desc">Hacemos las correcciones finales y te entrego el sistema 100% funcionando.</p>
+          </div>
+        </div>
+
+        <div style="text-align: center;">
+          <div class="time-badge">
+            ⏱️ Plazo aproximado: 14 días para la primera versión lista para usar.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. CÓMO ARMO EL PRESUPUESTO -->
+    <section id="presupuesto">
+      <div class="container">
+        <span class="badge">Claridad Comercial</span>
+        <h2 class="section-title">Cómo armamos tu presupuesto</h2>
+        
+        <div class="budget-grid">
+          <div class="budget-info">
+            <h3>Presupuesto a la medida de tu necesidad</h3>
+            <p style="color: var(--text-muted); margin-bottom: 1rem;">
+              No hay un precio único publicado porque cada negocio tiene necesidades, volumen de datos y dinámicas distintas. El presupuesto depende exclusivamente de:
+            </p>
+            <ul class="budget-factors">
+              <li>El problema concreto que hay que resolver</li>
+              <li>La cantidad de funciones necesarias</li>
+              <li>La complejidad de la operación</li>
+              <li>Las integraciones requeridas</li>
+              <li>El alcance acordado</li>
+            </ul>
+          </div>
+
+          <div class="budget-process">
+            <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: #fff;">El camino para obtener tu propuesta:</h3>
+            <div class="process-flow">
+              <div class="process-item">
+                <span class="process-step-tag">PASO 1</span>
+                <span style="color: var(--text-main); font-weight: 500;">Mirás la demo e información</span>
+              </div>
+              <div class="process-item">
+                <span class="process-step-tag">PASO 2</span>
+                <span style="color: var(--text-main); font-weight: 500;">Reunión de 20 minutos</span>
+              </div>
+              <div class="process-item">
+                <span class="process-step-tag">PASO 3</span>
+                <span style="color: var(--text-main); font-weight: 500;">Entiendo la necesidad real</span>
+              </div>
+              <div class="process-item">
+                <span class="process-step-tag">PASO 4</span>
+                <span style="color: var(--text-main); font-weight: 500;">Presupuesto concreto y cerrado</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. PREGUNTAS FRECUENTES -->
+    <section id="faq">
+      <div class="container">
+        <span class="badge">Dudas Habituales</span>
+        <h2 class="section-title">Preguntas frecuentes</h2>
+        <p class="section-subtitle">Respuestas directas a las inquietudes más comunes antes de coordinar una charla.</p>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>1. ¿Tengo que cambiar toda mi manera de trabajar?</span>
+            </div>
+            <div class="faq-answer">
+              No, para nada. El sistema se adapta a la forma en que operás hoy para simplificarla, sin obligarte a aprender procesos raros ni estructurados.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>2. ¿Voy a necesitar una computadora?</span>
+            </div>
+            <div class="faq-answer">
+              No es obligatorio. Podés manejar absolutamente todo de forma cómoda y rápida directamente desde el navegador de tu celular o tablet.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>3. ¿Podemos empezar solamente por una parte del negocio?</span>
+            </div>
+            <div class="faq-answer">
+              Sí, totalmente. Lo recomendado es arrancar resolviendo el problema más molesto (por ejemplo, el registro de trabajos o historial) y avanzar por partes.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>4. ¿La solución es igual para todos los negocios?</span>
+            </div>
+            <div class="faq-answer">
+              No. Aunque la estructura sea simple, se ajusta a los datos, tipos de servicios y flujo específico que maneja tu taller o negocio.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>5. ¿Cuánto cuesta?</span>
+            </div>
+            <div class="faq-answer">
+              El costo se define con precisión en la reunión de 20 minutos según el alcance y las funciones concretas que tu negocio necesite implementar.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>6. ¿Qué pasa si después necesito agregar otras funciones?</span>
+            </div>
+            <div class="faq-answer">
+              El sistema es flexible y escalable. Podés sumar nuevos módulos, campos o herramientas a medida que tu negocio vaya creciendo.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. CTA FINAL -->
+    <section id="cta" class="cta-section">
+      <div class="container cta-container">
+        <span class="badge">Siguiente Paso</span>
+        <h2 class="section-title" style="font-size: 2.5rem;">Agendá una reunión de 20 minutos</h2>
+        <p class="cta-text">
+          Charlemos 20 minutos para conocer cómo trabaja tu negocio, detectar si hay un problema que se pueda simplificar y evaluar juntos una posible solución. Sin compromisos de compra.
+        </p>
+        <a href="#cta" class="btn-primary" style="font-size: 1.2rem; padding: 1.25rem 2.5rem;">Agendá una reunión de 20 minutos</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>© 2026 Hernán — Sistemas simples para pequeños negocios y prestadores de servicios.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
